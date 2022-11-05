@@ -2,4 +2,5 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
     mao.tools_j2cache.config.CacheConfig,\
     net.oschina.j2cache.autoconfigure.J2CacheAutoConfiguration,\
     net.oschina.j2cache.autoconfigure.J2CacheSpringCacheAutoConfiguration,\
-    net.oschina.j2cache.autoconfigure.J2CacheSpringRedisAutoConfiguration
+    net.oschina.j2cache.autoconfigure.J2CacheSpringRedisAutoConfiguration,\
+    mao.tools_j2cache.config.RedissonConfig

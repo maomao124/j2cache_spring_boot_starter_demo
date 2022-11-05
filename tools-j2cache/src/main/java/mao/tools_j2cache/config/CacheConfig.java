@@ -1,7 +1,11 @@
 package mao.tools_j2cache.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.interceptor.KeyGenerator;
+
+import javax.annotation.PostConstruct;
 
 /**
  * Project name(项目名称)：j2cache_spring_boot_starter_demo
@@ -18,6 +22,8 @@ import org.springframework.cache.interceptor.KeyGenerator;
 
 public class CacheConfig extends CachingConfigurerSupport
 {
+    private static final Logger log = LoggerFactory.getLogger(CacheConfig.class);
+
     /**
      * 解决注解：Cacheable 没有指定key时，会将key生成为 ${value}:SimpleKey []
      * eg： @Cacheable(value = "pinda") ->  pinda:SimpleKey []
@@ -42,5 +48,11 @@ public class CacheConfig extends CachingConfigurerSupport
             return sb.toString();*/
             return "";
         };
+    }
+
+    @PostConstruct
+    public void init()
+    {
+        log.info("初始化 CacheConfig");
     }
 }
