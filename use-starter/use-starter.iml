@@ -126,5 +126,6 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.9.7" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.7" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.79" level="project" />
   </component>
 </module>
