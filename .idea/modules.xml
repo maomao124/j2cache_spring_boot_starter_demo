@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/j2cache_spring_boot_starter_demo.iml" filepath="$PROJECT_DIR$/j2cache_spring_boot_starter_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tools-j2cache/tools-j2cache.iml" filepath="$PROJECT_DIR$/tools-j2cache/tools-j2cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/use-starter/use-starter.iml" filepath="$PROJECT_DIR$/use-starter/use-starter.iml" />
+    </modules>
+  </component>
+</project>
