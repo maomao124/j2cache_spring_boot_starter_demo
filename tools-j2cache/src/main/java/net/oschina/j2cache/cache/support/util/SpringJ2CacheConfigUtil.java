@@ -12,7 +12,7 @@ public class SpringJ2CacheConfigUtil
     /**
      * 从spring环境变量中查找j2cache配置
      */
-    public final static J2CacheConfig initFromConfig(StandardEnvironment environment)
+    public static J2CacheConfig initFromConfig(StandardEnvironment environment)
     {
         J2CacheConfig config = new J2CacheConfig();
         config.setSerialization(environment.getProperty("j2cache.serialization"));

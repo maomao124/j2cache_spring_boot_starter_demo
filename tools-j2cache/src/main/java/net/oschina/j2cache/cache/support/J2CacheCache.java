@@ -17,7 +17,7 @@ public class J2CacheCache extends AbstractValueAdaptingCache
 
     private CacheChannel cacheChannel;
 
-    private String j2CacheName = "net/oschina/j2cache";
+    private String j2CacheName = "j2cache";
 
     public J2CacheCache(String cacheName, CacheChannel cacheChannel)
     {

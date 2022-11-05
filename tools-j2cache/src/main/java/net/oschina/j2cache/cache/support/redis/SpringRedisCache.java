@@ -8,13 +8,19 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * 重新实现二级缓存
+ * 重新实现二级缓存，采用hash结构缓存数据
  */
 public class SpringRedisCache implements Level2Cache
 {
 
+    /**
+     * 名称空间
+     */
     private String namespace;
 
+    /**
+     * 地区
+     */
     private String region;
 
     private RedisTemplate<String, Serializable> redisTemplate;
@@ -82,7 +88,8 @@ public class SpringRedisCache implements Level2Cache
     @Override
     public byte[] getBytes(String key)
     {
-        return redisTemplate.opsForHash().getOperations().execute((RedisCallback<byte[]>) redis -> redis.hGet(region.getBytes(), key.getBytes()));
+        return redisTemplate.opsForHash().getOperations().execute((RedisCallback<byte[]>) redis ->
+                redis.hGet(region.getBytes(), key.getBytes()));
     }
 
     @Override

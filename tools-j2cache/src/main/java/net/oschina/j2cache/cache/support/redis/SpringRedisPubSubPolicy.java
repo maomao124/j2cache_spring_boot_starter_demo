@@ -109,6 +109,11 @@ public class SpringRedisPubSubPolicy implements ClusterPolicy
         holder.getLevel1Cache(region).clear();
     }
 
+    /**
+     * 发布
+     *
+     * @param cmd cmd
+     */
     @Override
     public void publish(Command cmd)
     {
@@ -119,6 +124,9 @@ public class SpringRedisPubSubPolicy implements ClusterPolicy
         }
     }
 
+    /**
+     * 断开连接
+     */
     @Override
     public void disconnect()
     {

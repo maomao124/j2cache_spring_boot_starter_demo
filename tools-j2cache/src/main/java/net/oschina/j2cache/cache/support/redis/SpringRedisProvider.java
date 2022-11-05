@@ -18,10 +18,22 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SpringRedisProvider implements CacheProvider
 {
 
+    /**
+     * 缓存
+     */
     protected ConcurrentHashMap<String, Cache> caches = new ConcurrentHashMap<>();
     private RedisTemplate<String, Serializable> redisTemplate;
+    /**
+     * 配置
+     */
     private net.oschina.j2cache.autoconfigure.J2CacheConfig config;
+    /**
+     * 名称空间
+     */
     private String namespace;
+    /**
+     * 存储
+     */
     private String storage;
 
     @Override
@@ -42,6 +54,13 @@ public class SpringRedisProvider implements CacheProvider
         return Collections.emptyList();
     }
 
+    /**
+     * 建立缓存
+     *
+     * @param region   地区
+     * @param listener 侦听器
+     * @return {@link Cache}
+     */
     @Override
     public Cache buildCache(String region, CacheExpiredListener listener)
     {

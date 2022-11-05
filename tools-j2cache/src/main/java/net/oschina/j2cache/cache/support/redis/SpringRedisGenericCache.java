@@ -16,8 +16,14 @@ import java.util.stream.Collectors;
 public class SpringRedisGenericCache implements Level2Cache
 {
 
+    /**
+     * 日志
+     */
     private final static Logger log = LoggerFactory.getLogger(net.oschina.j2cache.cache.support.redis.SpringRedisGenericCache.class);
 
+    /**
+     * 名称空间
+     */
     private String namespace;
 
     private String region;
@@ -78,7 +84,8 @@ public class SpringRedisGenericCache implements Level2Cache
     @Override
     public Collection<String> keys()
     {
-        return redisTemplate.keys(this.region + ":*").stream().map(k -> k.substring(this.region.length() + 1)).collect(Collectors.toSet());
+        return redisTemplate.keys(this.region + ":*").stream().map(k ->
+                k.substring(this.region.length() + 1)).collect(Collectors.toSet());
     }
 
     @Override

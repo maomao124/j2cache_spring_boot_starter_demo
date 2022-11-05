@@ -10,6 +10,9 @@ import org.springframework.context.ApplicationContextAware;
 public class SpringUtil implements ApplicationContextAware
 {
 
+    /**
+     * 应用程序上下文
+     */
     private static ApplicationContext applicationContext;
 
     /**

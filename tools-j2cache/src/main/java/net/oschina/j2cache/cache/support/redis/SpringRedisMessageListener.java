@@ -14,11 +14,23 @@ import org.springframework.data.redis.connection.MessageListener;
 public class SpringRedisMessageListener implements MessageListener
 {
 
+    /**
+     * 日志记录器
+     */
     private static Logger logger = LoggerFactory.getLogger(net.oschina.j2cache.cache.support.redis.SpringRedisMessageListener.class);
+    /**
+     * 当地命令id
+     */
     private int LOCAL_COMMAND_ID = Command.genRandomSrc(); //命令源标识，随机生成，每个节点都有唯一标识
 
+    /**
+     * 集群政策
+     */
     private ClusterPolicy clusterPolicy;
 
+    /**
+     * 通道
+     */
     private String channel;
 
     SpringRedisMessageListener(ClusterPolicy clusterPolicy, String channel)

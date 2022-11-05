@@ -85,7 +85,7 @@ public class J2CacheSpringRedisAutoConfiguration
         else
         {
             log.error("j2cache中的redis配置缺少hosts！！");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("j2cache中的redis配置缺少hosts");
         }
 
         RedisPassword paw = RedisPassword.none();

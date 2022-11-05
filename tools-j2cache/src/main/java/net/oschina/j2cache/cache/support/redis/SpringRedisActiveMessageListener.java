@@ -12,10 +12,19 @@ import org.springframework.data.redis.connection.MessageListener;
 public class SpringRedisActiveMessageListener implements MessageListener
 {
 
+    /**
+     * 日志记录器
+     */
     private static Logger logger = LoggerFactory.getLogger(net.oschina.j2cache.cache.support.redis.SpringRedisActiveMessageListener.class);
 
+    /**
+     * 集群政策
+     */
     private ClusterPolicy clusterPolicy;
 
+    /**
+     * 名称空间
+     */
     private String namespace;
 
     SpringRedisActiveMessageListener(ClusterPolicy clusterPolicy, String namespace)
