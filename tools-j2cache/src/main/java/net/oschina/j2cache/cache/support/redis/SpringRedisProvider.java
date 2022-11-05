@@ -1,16 +1,19 @@
 package net.oschina.j2cache.cache.support.redis;
 
-import net.oschina.j2cache.*;
-import net.oschina.j2cache.cache.support.redis.SpringRedisCache;
-import net.oschina.j2cache.cache.support.redis.SpringRedisGenericCache;
-import net.oschina.j2cache.cache.support.util.SpringUtil;
-import org.springframework.data.redis.core.RedisTemplate;
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
+
+import net.oschina.j2cache.Cache;
+import net.oschina.j2cache.CacheChannel;
+import net.oschina.j2cache.CacheExpiredListener;
+import net.oschina.j2cache.CacheObject;
+import net.oschina.j2cache.CacheProvider;
+import net.oschina.j2cache.NullCache;
+import net.oschina.j2cache.cache.support.util.SpringUtil;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * spring redis缓存

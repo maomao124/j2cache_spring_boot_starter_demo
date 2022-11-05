@@ -2,7 +2,6 @@ package net.oschina.j2cache.autoconfigure;
 
 import net.oschina.j2cache.CacheChannel;
 import net.oschina.j2cache.J2Cache;
-import net.oschina.j2cache.autoconfigure.J2CacheConfig;
 import net.oschina.j2cache.cache.support.J2CacheCacheManger;
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;

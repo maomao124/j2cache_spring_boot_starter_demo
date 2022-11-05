@@ -1,7 +1,12 @@
 package net.oschina.j2cache.cache.support;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import net.oschina.j2cache.CacheChannel;
-import net.oschina.j2cache.cache.support.J2CacheCache;
 import org.springframework.cache.Cache;
 import org.springframework.cache.transaction.AbstractTransactionSupportingCacheManager;
 import org.springframework.util.CollectionUtils;

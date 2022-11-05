@@ -1,11 +1,15 @@
 package net.oschina.j2cache.cache.support.redis;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import net.oschina.j2cache.Level2Cache;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
-
-import java.io.Serializable;
-import java.util.*;
 
 /**
  * 重新实现二级缓存，采用hash结构缓存数据
