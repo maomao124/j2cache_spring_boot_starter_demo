@@ -180,3 +180,35 @@ memcached:
   maxQueuedNoReplyOperations: 100
   opTimeout: 100
   sanitizeKeys: false
+
+
+
+
+
+
+# 设置日志级别，root表示根节点，即整体应用日志级别
+logging:
+  # 日志输出到文件的文件名
+  file:
+    name: server.log
+  # 字符集
+  charset:
+    file: UTF-8
+  # 分文件
+  logback:
+    rollingpolicy:
+      #最大文件大小
+      max-file-size: 16KB
+      # 文件格式
+      file-name-pattern: logs/server_log/%d{yyyy/MM月/dd日/}%i.log
+  # 设置日志组
+  group:
+    # 自定义组名，设置当前组中所包含的包
+    mao_pro: mao
+  level:
+    root: info
+    # 为对应组设置日志级别
+    mao_pro: debug
+    # 日志输出格式
+  # pattern:
+  # console: "%d %clr(%p) --- [%16t] %clr(%-40.40c){cyan} : %m %n"

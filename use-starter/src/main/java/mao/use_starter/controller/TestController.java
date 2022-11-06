@@ -212,9 +212,9 @@ public class TestController
     public boolean update()
     {
         Student student = new Student();
-        student.setId(2L);
-        student.setName("张三");
-        boolean update = redisUtils.update(2L, student, "tools:", s -> updateMysqlById(student, 2L));
+        student.setId(1L);
+        student.setName("张三2");
+        boolean update = redisUtils.update(1L, student, "tools:", s -> updateMysqlById(student, 1L));
         return update;
     }
 

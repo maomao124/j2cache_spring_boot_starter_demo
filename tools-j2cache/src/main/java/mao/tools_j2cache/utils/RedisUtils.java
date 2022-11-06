@@ -34,6 +34,9 @@ import java.util.function.Function;
 public class RedisUtils
 {
 
+    /**
+     * 日志
+     */
     private static final Logger log = LoggerFactory.getLogger(RedisUtils.class);
 
     @Resource
@@ -205,11 +208,13 @@ public class RedisUtils
     {
         //获取redisKey
         String redisKey = keyPrefix + id;
+        //log.debug("查询：" + redisKey);
         //从redis中查询信息，根据id
         String json = stringRedisTemplate.opsForValue().get(redisKey);
         //判断取出的数据是否为空
         if (StrUtil.isNotBlank(json))
         {
+            //log.debug(redisKey + " 缓存命中");
             //不是空，redis里有，返回
             return JSONUtil.toBean(json, type);
         }
@@ -225,6 +230,7 @@ public class RedisUtils
         LockInfo lockInfo = null;
         try
         {
+            //log.debug(redisKey + " 缓存未命中，尝试获取锁");
             //获取互斥锁
             lockInfo = tryLock(lockKey);
             //判断锁是否获取成功
@@ -238,7 +244,18 @@ public class RedisUtils
                         expireTime, timeUnit, maxTimeSecondsByCacheAvalanche);
             }
             //得到了锁
+            //从redis中查询信息，根据id
+            json = stringRedisTemplate.opsForValue().get(redisKey);
+            //判断取出的数据是否为空
+            if (StrUtil.isNotBlank(json))
+            {
+                //log.debug(redisKey + " 获取分布式锁后，缓存命中");
+                //不是空，redis里有，返回
+                return JSONUtil.toBean(json, type);
+            }
+
             //null，查数据库
+            log.debug(redisKey + " 获取分布式锁后，缓存未命中，查询数据库");
             r = dbFallback.apply(id);
             //判断数据库里的信息是否为空
             if (r == null)
@@ -301,6 +318,7 @@ public class RedisUtils
         //redisKey
         String redisKey = keyPrefix + id;
         stringRedisTemplate.delete(redisKey);
+        log.debug("更新：" + redisKey);
         //返回响应
         return true;
     }
@@ -396,6 +414,7 @@ public class RedisUtils
             LockInfo lockInfo = new LockInfo();
             lockInfo.setLock(lock);
             lockInfo.setSuccess(lock.tryLock(1, 10, TimeUnit.SECONDS));
+            //log.debug("尝试获取分布式锁：" + lockInfo.isSuccess());
             return lockInfo;
         }
         catch (InterruptedException e)
@@ -415,7 +434,11 @@ public class RedisUtils
      */
     private void unlock(LockInfo lockInfo)
     {
-        lockInfo.lock.unlock();
+        if (lockInfo.getLock().isHeldByCurrentThread())
+        {
+            //log.debug("尝试释放分布式锁");
+            lockInfo.lock.unlock();
+        }
     }
 
 
