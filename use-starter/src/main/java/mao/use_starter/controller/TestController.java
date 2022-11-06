@@ -1,5 +1,7 @@
 package mao.use_starter.controller;
 
+import mao.tools_j2cache.utils.RedisUtils;
+import mao.use_starter.entity.Student;
 import net.oschina.j2cache.CacheChannel;
 import net.oschina.j2cache.CacheObject;
 import org.slf4j.Logger;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 /**
  * Project name(项目名称)：j2cache_demo
@@ -160,4 +164,58 @@ public class TestController
         cacheChannel.clear(region);
         return "clear success";
     }
+
+
+    @Autowired
+    private RedisUtils redisUtils;
+
+    private Student queryMysqlById(long id)
+    {
+        log.info("查询Mysql数据库");
+        try
+        {
+            Thread.sleep(10);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        Student student = new Student();
+        student.setId(id);
+        student.setName("张三");
+        return student;
+    }
+
+    private Boolean updateMysqlById(Student student, long id)
+    {
+        log.info("更新Mysql数据库");
+        try
+        {
+            Thread.sleep(10);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @GetMapping("/query")
+    public Student query()
+    {
+        Student result = redisUtils.query("tools:", "tools:lock:", 1L, Student.class,
+                this::queryMysqlById, 30L, TimeUnit.MINUTES, 60);
+        return result;
+    }
+
+    @GetMapping("/update")
+    public boolean update()
+    {
+        Student student = new Student();
+        student.setId(2L);
+        student.setName("张三");
+        boolean update = redisUtils.update(2L, student, "tools:", s -> updateMysqlById(student, 2L));
+        return update;
+    }
+
 }
