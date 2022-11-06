@@ -186,6 +186,26 @@ public class TestController
         return student;
     }
 
+    /**
+     * 查询mysql ,测试缓存穿透
+     *
+     * @param id id
+     * @return {@link Student}
+     */
+    private Student queryMysqlById2(long id)
+    {
+        log.info("查询Mysql数据库2");
+        try
+        {
+            Thread.sleep(10);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private Boolean updateMysqlById(Student student, long id)
     {
         log.info("更新Mysql数据库");
@@ -200,11 +220,22 @@ public class TestController
         return true;
     }
 
+
+
+
     @GetMapping("/query")
     public Student query()
     {
         Student result = redisUtils.query("tools:", "tools:lock:", 1L, Student.class,
                 this::queryMysqlById, 30L, TimeUnit.MINUTES, 60);
+        return result;
+    }
+
+    @GetMapping("/query2")
+    public Student query2()
+    {
+        Student result = redisUtils.query("tools:", "tools:lock:", 2L, Student.class,
+                this::queryMysqlById2, 30L, TimeUnit.MINUTES, 60);
         return result;
     }
 
@@ -217,5 +248,7 @@ public class TestController
         boolean update = redisUtils.update(1L, student, "tools:", s -> updateMysqlById(student, 1L));
         return update;
     }
+
+
 
 }

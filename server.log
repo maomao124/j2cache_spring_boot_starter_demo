@@ -1,104 +1,53 @@
-2022-11-06 13:28:39.330 ERROR 8264 --- [redisson-netty-4-30] o.r.client.handler.ErrorsLoggingHandler  : Exception occured. Channel: [id: 0x8d3a4f88, L:/127.0.0.1:65362 - R:127.0.0.1/127.0.0.1:6379]
-
-java.io.IOException: 远程主机强迫关闭了一个现有的连接。
-	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_332]
-	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_332]
-	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_332]
-	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_332]
-	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379) ~[na:1.8.0_332]
-	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:258) ~[netty-buffer-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357) ~[netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.78.Final.jar:4.1.78.Final]
-	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
-
-2022-11-06 13:28:43.895  INFO 14852 --- [main] mao.use_starter.UseStarterApplication    : Starting UseStarterApplication using Java 1.8.0_332 on mao with PID 14852 (H:\程序\大四上期\j2cache_spring_boot_starter_demo\use-starter\target\classes started by mao in H:\程序\大四上期\j2cache_spring_boot_starter_demo)
-2022-11-06 13:28:43.897 DEBUG 14852 --- [main] mao.use_starter.UseStarterApplication    : Running with Spring Boot v2.7.1, Spring v5.3.21
-2022-11-06 13:28:43.898  INFO 14852 --- [main] mao.use_starter.UseStarterApplication    : No active profile set, falling back to 1 default profile: "default"
-2022-11-06 13:28:44.236  INFO 14852 --- [main] o.s.c.a.ConfigurationClassParser         : Properties location [${j2cache.config-location}] not resolvable: Could not resolve placeholder 'j2cache.config-location' in value "${j2cache.config-location}"
-2022-11-06 13:28:44.648  INFO 14852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-11-06 13:28:44.650  INFO 14852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-11-06 13:28:44.669  INFO 14852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-2022-11-06 13:28:44.881  INFO 14852 --- [main] mao.tools_j2cache.config.CacheConfig     : 初始化 CacheConfig
-2022-11-06 13:28:44.882  INFO 14852 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mao.tools_j2cache.config.CacheConfig' of type [mao.tools_j2cache.config.CacheConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-11-06 13:28:45.126  INFO 14852 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-11-06 13:28:45.136  INFO 14852 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-11-06 13:28:45.136  INFO 14852 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
-2022-11-06 13:28:45.231  INFO 14852 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-11-06 13:28:45.231  INFO 14852 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1291 ms
-2022-11-06 13:28:45.435  INFO 14852 --- [main] n.o.j2cache.util.SerializationUtils      : Using Serializer -> [json:net.oschina.j2cache.util.FstJSONSerializer]
-2022-11-06 13:28:45.438  INFO 14852 --- [main] net.oschina.j2cache.CacheProviderHolder  : Using L1 CacheProvider : net.oschina.j2cache.caffeine.CaffeineProvider
-2022-11-06 13:28:46.057  INFO 14852 --- [main] net.oschina.j2cache.CacheProviderHolder  : Using L2 CacheProvider : net.oschina.j2cache.cache.support.redis.SpringRedisProvider
-2022-11-06 13:28:46.069  INFO 14852 --- [main] net.oschina.j2cache.J2CacheBuilder       : Using cluster policy : net.oschina.j2cache.cache.support.redis.SpringRedisPubSubPolicy
-2022-11-06 13:28:46.090  INFO 14852 --- [main] mao.tools_j2cache.config.RedissonConfig  : 初始化 RedissonConfig
-2022-11-06 13:28:46.093  INFO 14852 --- [main] mao.tools_j2cache.config.RedissonConfig  : 单机模式redis:127.0.0.1:6379
-2022-11-06 13:28:46.193  INFO 14852 --- [main] org.redisson.Version                     : Redisson 3.17.0
-2022-11-06 13:28:46.508  INFO 14852 --- [redisson-netty-4-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-2022-11-06 13:28:46.516  INFO 14852 --- [redisson-netty-4-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 127.0.0.1/127.0.0.1:6379
-2022-11-06 13:28:46.830  INFO 14852 --- [main] m.tools_j2cache.config.RedisUtilsConfig  : 初始化 RedisUtilsConfig
-2022-11-06 13:28:47.088  INFO 14852 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2022-11-06 13:28:47.127  INFO 14852 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-11-06 13:28:47.428  INFO 14852 --- [main] mao.use_starter.UseStarterApplication    : Started UseStarterApplication in 3.948 seconds (JVM running for 4.711)
-2022-11-06 13:28:47.919  INFO 14852 --- [RMI TCP Connection(1)-172.18.144.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-11-06 13:28:47.919  INFO 14852 --- [RMI TCP Connection(1)-172.18.144.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-11-06 13:28:47.921  INFO 14852 --- [RMI TCP Connection(1)-172.18.144.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-11-06 13:29:01.682  INFO 14852 --- [http-nio-8080-exec-106] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:29:01.720 DEBUG 14852 --- [http-nio-8080-exec-106] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:29:01.868 DEBUG 14852 --- [http-nio-8080-exec-107] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:29:01.869  INFO 14852 --- [http-nio-8080-exec-107] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:29:18.557  INFO 14852 --- [http-nio-8080-exec-123] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:29:18.594 DEBUG 14852 --- [http-nio-8080-exec-123] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:29:18.650 DEBUG 14852 --- [http-nio-8080-exec-13] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:29:18.650  INFO 14852 --- [http-nio-8080-exec-13] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:29:56.678  INFO 14852 --- [http-nio-8080-exec-190] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:29:56.702 DEBUG 14852 --- [http-nio-8080-exec-190] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:29:56.705 DEBUG 14852 --- [http-nio-8080-exec-53] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:29:56.706  INFO 14852 --- [http-nio-8080-exec-53] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:29:57.505  INFO 14852 --- [http-nio-8080-exec-113] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:29:57.526 DEBUG 14852 --- [http-nio-8080-exec-113] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:29:57.527 DEBUG 14852 --- [http-nio-8080-exec-2] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:29:57.527  INFO 14852 --- [http-nio-8080-exec-2] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:29:57.922  INFO 14852 --- [http-nio-8080-exec-119] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:29:57.947 DEBUG 14852 --- [http-nio-8080-exec-119] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:29:57.948 DEBUG 14852 --- [http-nio-8080-exec-6] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:29:57.948  INFO 14852 --- [http-nio-8080-exec-6] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:29:58.138  INFO 14852 --- [http-nio-8080-exec-118] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:29:58.162 DEBUG 14852 --- [http-nio-8080-exec-118] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:29:58.169 DEBUG 14852 --- [http-nio-8080-exec-129] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:29:58.169  INFO 14852 --- [http-nio-8080-exec-129] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:29:58.368  INFO 14852 --- [http-nio-8080-exec-60] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:29:58.381 DEBUG 14852 --- [http-nio-8080-exec-60] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:29:58.381 DEBUG 14852 --- [http-nio-8080-exec-54] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:29:58.381  INFO 14852 --- [http-nio-8080-exec-54] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:32:39.877  INFO 14852 --- [http-nio-8080-exec-176] m.use_starter.controller.TestController  : 更新Mysql数据库
-2022-11-06 13:32:39.914 DEBUG 14852 --- [http-nio-8080-exec-176] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
-2022-11-06 13:32:39.918 DEBUG 14852 --- [http-nio-8080-exec-164] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
-2022-11-06 13:32:39.918  INFO 14852 --- [http-nio-8080-exec-164] m.use_starter.controller.TestController  : 查询Mysql数据库
-2022-11-06 13:32:51.524 ERROR 14852 --- [redisson-netty-4-3] o.r.client.handler.ErrorsLoggingHandler  : Exception occured. Channel: [id: 0x7467bd01, L:/127.0.0.1:61650 - R:127.0.0.1/127.0.0.1:6379]
-
-java.io.IOException: 远程主机强迫关闭了一个现有的连接。
-	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_332]
-	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_332]
-	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_332]
-	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_332]
-	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379) ~[na:1.8.0_332]
-	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:258) ~[netty-buffer-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357) ~[netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) [netty-transport-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.78.Final.jar:4.1.78.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.78.Final.jar:4.1.78.Final]
-	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
-
+2022-11-06 13:49:35.858  INFO 6148 --- [main] mao.tools_j2cache.config.RedissonConfig  : 单机模式redis:127.0.0.1:6379
+2022-11-06 13:49:35.971  INFO 6148 --- [main] org.redisson.Version                     : Redisson 3.17.0
+2022-11-06 13:49:36.284  INFO 6148 --- [redisson-netty-4-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2022-11-06 13:49:36.292  INFO 6148 --- [redisson-netty-4-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2022-11-06 13:49:36.628  INFO 6148 --- [main] m.tools_j2cache.config.RedisUtilsConfig  : 初始化 RedisUtilsConfig
+2022-11-06 13:49:36.885  INFO 6148 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-11-06 13:49:36.925  INFO 6148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-06 13:49:37.206  INFO 6148 --- [main] mao.use_starter.UseStarterApplication    : Started UseStarterApplication in 4.039 seconds (JVM running for 4.968)
+2022-11-06 13:49:37.976  INFO 6148 --- [RMI TCP Connection(2)-172.18.144.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-06 13:49:37.976  INFO 6148 --- [RMI TCP Connection(2)-172.18.144.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-11-06 13:49:37.977  INFO 6148 --- [RMI TCP Connection(2)-172.18.144.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-11-06 13:51:30.956  INFO 6148 --- [http-nio-8080-exec-3] m.use_starter.controller.TestController  : 查询数据库3
+2022-11-06 13:51:38.574  INFO 6148 --- [http-nio-8080-exec-4] m.use_starter.controller.TestController  : 查询数据库3
+2022-11-06 13:51:38.784  INFO 6148 --- [http-nio-8080-exec-5] m.use_starter.controller.TestController  : 查询数据库3
+2022-11-06 13:51:38.954  INFO 6148 --- [http-nio-8080-exec-6] m.use_starter.controller.TestController  : 查询数据库3
+2022-11-06 13:51:46.176  INFO 6148 --- [http-nio-8080-exec-7] m.use_starter.controller.TestController  : 查询数据库2
+2022-11-06 13:52:57.883  INFO 6148 --- [http-nio-8080-exec-7] m.use_starter.controller.TestController  : 查询数据库
+2022-11-06 13:57:23.033  INFO 6148 --- [http-nio-8080-exec-124] m.use_starter.controller.TestController  : 更新Mysql数据库
+2022-11-06 13:57:23.062 DEBUG 6148 --- [http-nio-8080-exec-124] mao.tools_j2cache.utils.RedisUtils       : 更新：tools:1
+2022-11-06 13:57:23.197 DEBUG 6148 --- [http-nio-8080-exec-26] mao.tools_j2cache.utils.RedisUtils       : tools:1 获取分布式锁后，缓存未命中，查询数据库
+2022-11-06 13:57:23.197  INFO 6148 --- [http-nio-8080-exec-26] m.use_starter.controller.TestController  : 查询Mysql数据库
+2022-11-06 14:03:31.389  INFO 4628 --- [main] mao.use_starter.UseStarterApplication    : Starting UseStarterApplication using Java 1.8.0_332 on mao with PID 4628 (H:\程序\大四上期\j2cache_spring_boot_starter_demo\use-starter\target\classes started by mao in H:\程序\大四上期\j2cache_spring_boot_starter_demo)
+2022-11-06 14:03:31.391 DEBUG 4628 --- [main] mao.use_starter.UseStarterApplication    : Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-11-06 14:03:31.392  INFO 4628 --- [main] mao.use_starter.UseStarterApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-11-06 14:03:31.741  INFO 4628 --- [main] o.s.c.a.ConfigurationClassParser         : Properties location [${j2cache.config-location}] not resolvable: Could not resolve placeholder 'j2cache.config-location' in value "${j2cache.config-location}"
+2022-11-06 14:03:32.173  INFO 4628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2022-11-06 14:03:32.175  INFO 4628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-11-06 14:03:32.192  INFO 4628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2022-11-06 14:03:32.396  INFO 4628 --- [main] mao.tools_j2cache.config.CacheConfig     : 初始化 CacheConfig
+2022-11-06 14:03:32.397  INFO 4628 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mao.tools_j2cache.config.CacheConfig' of type [mao.tools_j2cache.config.CacheConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-11-06 14:03:32.626  INFO 4628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-06 14:03:32.633  INFO 4628 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-06 14:03:32.634  INFO 4628 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-11-06 14:03:32.731  INFO 4628 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-06 14:03:32.731  INFO 4628 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1292 ms
+2022-11-06 14:03:32.931  INFO 4628 --- [main] n.o.j2cache.util.SerializationUtils      : Using Serializer -> [json:net.oschina.j2cache.util.FstJSONSerializer]
+2022-11-06 14:03:32.935  INFO 4628 --- [main] net.oschina.j2cache.CacheProviderHolder  : Using L1 CacheProvider : net.oschina.j2cache.caffeine.CaffeineProvider
+2022-11-06 14:03:33.571  INFO 4628 --- [main] net.oschina.j2cache.CacheProviderHolder  : Using L2 CacheProvider : net.oschina.j2cache.cache.support.redis.SpringRedisProvider
+2022-11-06 14:03:33.585  INFO 4628 --- [main] net.oschina.j2cache.J2CacheBuilder       : Using cluster policy : net.oschina.j2cache.cache.support.redis.SpringRedisPubSubPolicy
+2022-11-06 14:03:33.606  INFO 4628 --- [main] mao.tools_j2cache.config.RedissonConfig  : 初始化 RedissonConfig
+2022-11-06 14:03:33.609  INFO 4628 --- [main] mao.tools_j2cache.config.RedissonConfig  : 单机模式redis:127.0.0.1:6379
+2022-11-06 14:03:33.707  INFO 4628 --- [main] org.redisson.Version                     : Redisson 3.17.0
+2022-11-06 14:03:34.024  INFO 4628 --- [redisson-netty-4-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2022-11-06 14:03:34.032  INFO 4628 --- [redisson-netty-4-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2022-11-06 14:03:34.369  INFO 4628 --- [main] m.tools_j2cache.config.RedisUtilsConfig  : 初始化 RedisUtilsConfig
+2022-11-06 14:03:34.623  INFO 4628 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-11-06 14:03:34.664  INFO 4628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-06 14:03:34.940  INFO 4628 --- [main] mao.use_starter.UseStarterApplication    : Started UseStarterApplication in 3.982 seconds (JVM running for 4.741)
+2022-11-06 14:03:35.136  INFO 4628 --- [RMI TCP Connection(1)-172.18.144.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-06 14:03:35.136  INFO 4628 --- [RMI TCP Connection(1)-172.18.144.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-11-06 14:03:35.139  INFO 4628 --- [RMI TCP Connection(1)-172.18.144.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-11-06 14:03:51.216 DEBUG 4628 --- [http-nio-8080-exec-2] mao.tools_j2cache.utils.RedisUtils       : tools:2 获取分布式锁后，缓存未命中，查询数据库
+2022-11-06 14:03:51.216  INFO 4628 --- [http-nio-8080-exec-2] m.use_starter.controller.TestController  : 查询Mysql数据库2
